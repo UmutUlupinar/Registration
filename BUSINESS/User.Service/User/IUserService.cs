@@ -1,6 +1,10 @@
-﻿namespace User.Service.User;
+﻿using User.Service.Models.User;
 
-public interface IUserService 
+namespace User.Service.User;
+
+public interface IUserService
 {
-    
+    Task Register(UserRegisterRequestModel requestModel);
+    Task ActivateAccount();
+    Task<UserLoginResponseModel> Login(UserLoginRequestModel requestModel);
 }

@@ -8,7 +8,6 @@
 
     <ItemGroup>
       <Folder Include="Models\Profile" />
-      <Folder Include="Models\User" />
     </ItemGroup>
 
 </Project>
