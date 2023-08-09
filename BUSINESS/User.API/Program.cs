@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using User.API.Extensions;
 using User.DataAccess;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -10,15 +11,16 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-var app = builder.Build();
-
 builder.Services.AddDbContext<Context>(opt =>
 {
-    opt.UseSqlServer(builder.Configuration.GetConnectionString("SqlConStr"), sqlServerOptionsAction: sqlOptions =>
-    {
-        sqlOptions.EnableRetryOnFailure();
-    });
+    opt.UseSqlServer(builder.Configuration.GetConnectionString("SqlConStr"),
+        b=>b.MigrationsAssembly("User.API"));
 });
+
+builder.Services.AddRepositories();
+
+var app = builder.Build();
+
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
