@@ -13,8 +13,5 @@ public class UserEntityConfiguration: IEntityTypeConfiguration<Core.Entities.Use
         builder.Property(s => s.Password).IsRequired();
         builder.ToTable("Users");
         
-        builder.HasOne(x => x.Profile)
-            .WithOne(x => x.User)
-            .HasForeignKey<Profile>(x => x.UserId);
     }
 }
