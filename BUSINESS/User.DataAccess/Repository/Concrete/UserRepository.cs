@@ -1,6 +1,10 @@
-﻿namespace User.DataAccess.Repository.Concrete;
+﻿using User.DataAccess.Repository.Abstract;
 
-public class UserRepository
+namespace User.DataAccess.Repository.Concrete;
+
+public class UserRepository : GenericRepository<Core.Entities.User>, IUserRepository
 {
-    
+    public UserRepository(Context context) : base(context)
+    {
+    }
 }
