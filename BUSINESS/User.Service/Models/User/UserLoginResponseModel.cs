@@ -1,4 +1,4 @@
-﻿namespace User.API.Models.User;
+﻿namespace User.Service.Models.User;
 
 public class UserLoginResponseModel
 {
