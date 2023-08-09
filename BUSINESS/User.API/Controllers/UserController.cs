@@ -28,8 +28,8 @@ public class UserController : Controller
     /// this action provides to activate user by changing user status to active
     /// </summary>
     [HttpPost]
-    public async Task ActivateAccount()
-        => await _userService.ActivateAccount();
+    public async Task ActivateAccount(string mail)
+        => await _userService.ActivateAccount(mail);
 
     /// <summary>
     /// this action provides to login by UserName-password or Mail-Password
