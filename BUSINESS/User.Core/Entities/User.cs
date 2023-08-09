@@ -1,6 +1,14 @@
 ﻿namespace User.Core.Entities;
 
-public class User
+public partial class User
 {
+    public string UserName { get; set; }
+    public string Mail { get; set; }
+    public string Password { get; set; }
     
+}
+
+public partial class User
+{
+    public Profile Profile { get; set; }
 }
