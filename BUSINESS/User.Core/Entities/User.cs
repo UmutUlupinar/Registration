@@ -1,6 +1,6 @@
 ﻿namespace User.Core.Entities;
 
-public partial class User
+public partial class User : BaseEntity
 {
     public string UserName { get; set; }
     public string Mail { get; set; }

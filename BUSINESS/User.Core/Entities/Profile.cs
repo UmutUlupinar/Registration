@@ -1,6 +1,6 @@
 ﻿namespace User.Core.Entities;
 
-public partial class Profile
+public partial class Profile : BaseEntity
 {
     public string Name { get; set; }
     public string LastName { get; set; }
