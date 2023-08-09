@@ -10,4 +10,9 @@
       <Folder Include="Models\Profile" />
     </ItemGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\User.Core\User.Core.csproj" />
+      <ProjectReference Include="..\User.DataAccess\User.DataAccess.csproj" />
+    </ItemGroup>
+
 </Project>
