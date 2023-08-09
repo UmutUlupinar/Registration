@@ -18,26 +18,26 @@ public class GenericRepository<T> : IGenericRepository<T> where T : class
     
     public async Task<T> GetByIdAsync(Guid id)
     {
-        return await _context.FindAsync<T>(id);
+        return await _dbContext.FindAsync(id);
     }
 
     public async Task<EntityEntry<T>> AddAsync(T entity)
     {
-        var result= await _context.AddAsync<T>(entity);
-        _context.SaveChanges();
+        var result= await _dbContext.AddAsync(entity);
+        await _context.SaveChangesAsync();
         return result;
     }
 
     public EntityEntry<T> Update(T entity)
     {
-        var result = _context.Update<T>(entity);
+        var result = _dbContext.Update(entity);
         _context.SaveChanges();
         return result;
     }
 
     public EntityEntry<T> Remove(T entity)
     {
-        return _context.Remove<T>(entity);
+        return _dbContext.Remove(entity);
     }
 
     public async Task<IEnumerable<T>> Where(Expression<Func<T, bool>> predicate)
@@ -45,8 +45,8 @@ public class GenericRepository<T> : IGenericRepository<T> where T : class
         return await _dbContext.Where(predicate).ToListAsync();
     }
     
-    public Task<T> SingleOrDefaultAsync(Expression<Func<T, bool>> predicate)
+    public Task<T> FirstOrDefaultAsync(Expression<Func<T, bool>> predicate)
     {
-        return _dbContext.SingleOrDefaultAsync(predicate);
+        return _dbContext.FirstOrDefaultAsync(predicate);
     }
 }
