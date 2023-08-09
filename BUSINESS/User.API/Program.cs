@@ -18,6 +18,7 @@ builder.Services.AddDbContext<Context>(opt =>
 });
 
 builder.Services.AddRepositories();
+builder.Services.AddServices();
 
 var app = builder.Build();
 
