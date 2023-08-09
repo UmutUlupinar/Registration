@@ -28,4 +28,8 @@
       <Folder Include="Controllers" />
     </ItemGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\User.DataAccess\User.DataAccess.csproj" />
+    </ItemGroup>
+
 </Project>
