@@ -1,6 +1,6 @@
 ﻿namespace User.DataAccess.Repository.Abstract;
 
-public interface IUserRepository
+public interface IUserRepository: IGenericRepository<Core.Entities.User>
 {
     
 }

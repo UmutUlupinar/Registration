@@ -1,6 +1,8 @@
-﻿namespace User.DataAccess.Repository.Abstract;
+﻿using User.Core.Entities;
 
-public interface IProfileRepository
+namespace User.DataAccess.Repository.Abstract;
+
+public interface IProfileRepository: IGenericRepository<Profile>
 {
     
 }
