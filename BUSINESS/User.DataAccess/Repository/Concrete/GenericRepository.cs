@@ -49,4 +49,9 @@ public class GenericRepository<T> : IGenericRepository<T> where T : class
     {
         return _dbContext.FirstOrDefaultAsync(predicate);
     }
+
+    public IQueryable<T> AsQueryable()
+    {
+        return this.AsQueryable();
+    }
 }

@@ -37,6 +37,6 @@ public class UserController : Controller
     /// <param name="requestModel"></param>
     /// <returns></returns>
     [HttpGet]
-    public async Task<UserLoginResponseModel> Login(UserLoginRequestModel requestModel)
-        => await _userService.Login(requestModel);
+    public async Task<UserLoginResponseModel> Login([FromQuery]UserLoginRequestModel requestModel)
+        =>  _userService.Login(requestModel);
 }

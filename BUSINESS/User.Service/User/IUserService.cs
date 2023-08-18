@@ -6,5 +6,5 @@ public interface IUserService
 {
     Task Register(UserRegisterRequestModel requestModel);
     Task ActivateAccount(string mail);
-    Task<UserLoginResponseModel> Login(UserLoginRequestModel requestModel);
+    UserLoginResponseModel Login(UserLoginRequestModel requestModel);
 }

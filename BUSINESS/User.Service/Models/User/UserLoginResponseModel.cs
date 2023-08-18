@@ -2,5 +2,5 @@
 
 public class UserLoginResponseModel
 {
-    
+    public string UserName { get; set; }
 }

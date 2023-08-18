@@ -54,8 +54,19 @@ public class UserService : IUserService
         }
     }
 
-    public Task<UserLoginResponseModel> Login(UserLoginRequestModel requestModel)
+    public UserLoginResponseModel Login(UserLoginRequestModel requestModel)
     {
-        throw new NotImplementedException();
+        var user = _userRepository.AsQueryable()
+            .Where(u => u.Mail == requestModel.UserNameOrMail || u.UserName == requestModel.UserNameOrMail)
+            .FirstOrDefault(u => u.Password == requestModel.Password);
+        if (user != null)
+        {
+            return new UserLoginResponseModel
+            {
+                UserName = user.UserName
+            };
+        }
+
+        throw new Exception("mail username or password is incorrect");
     }
 }
