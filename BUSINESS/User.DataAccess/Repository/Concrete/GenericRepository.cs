@@ -54,4 +54,9 @@ public class GenericRepository<T> : IGenericRepository<T> where T : class
     {
         return this.AsQueryable();
     }
+
+    public IQueryable<bool> Select(Expression<Func<T, bool>> predicate)
+    {
+        return _dbContext.Select(predicate);
+    }
 }

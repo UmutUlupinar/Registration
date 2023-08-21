@@ -13,4 +13,5 @@ public interface IGenericRepository<T> where T : class
     Task<IEnumerable<T>> Where(Expression<Func<T, bool>> predicate);
     Task<T> FirstOrDefaultAsync(Expression<Func<T, bool>> predicate);
     IQueryable<T> AsQueryable();
+    IQueryable<bool> Select(Expression<Func<T, bool>> predicate);
 }   
