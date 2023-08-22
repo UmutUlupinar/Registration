@@ -14,8 +14,14 @@ public class ProfileController : Controller
     {
         _profileService = profileService;
     }
-
-    public Task<ProfileUpdateResponseModel> UpdateProfile(ProfileUpdateRequestModel requestModel)
+    
+    /// <summary>
+    /// this action provides to update profile
+    /// </summary>
+    /// <param name="requestModel"></param>
+    /// <returns></returns>
+    [HttpPost]
+    public Task<ProfileUpdateResponseModel> UpdateProfile([FromQuery]ProfileUpdateRequestModel requestModel)
     {
         return _profileService.UpdateProfile(requestModel);
     }
