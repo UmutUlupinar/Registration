@@ -16,7 +16,7 @@ public class ProfileService :IProfileService
 
     public Task<ProfileUpdateResponseModel> UpdateProfile(ProfileUpdateRequestModel updateRequestModel)
     {
-        var profile = _profileRepository.AsQueryable()
+        var profile = _profileRepository.AsQueryable().AsNoTracking()
             .Include(p => p.User)
             .FirstOrDefault(p => p.User.Id == Guid.Parse(updateRequestModel.UserId));
 

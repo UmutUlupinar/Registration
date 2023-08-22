@@ -52,7 +52,7 @@ public class GenericRepository<T> : IGenericRepository<T> where T : class
 
     public IQueryable<T> AsQueryable()
     {
-        return this.AsQueryable();
+        return _dbContext.AsQueryable();
     }
 
     public IQueryable<bool> Select(Expression<Func<T, bool>> predicate)
